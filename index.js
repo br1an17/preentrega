@@ -4,35 +4,35 @@ const URL = 'https://fakestoreapi.com';
 
 //Consultar todos los productos
 async function getAllProducts() {
-  const response = await fetch(`${URL}/products`);
-  const data = await response.json();
+  const res = await fetch(`${URL}/products`);
+  const data = await res.json();
   console.log(data);
 }
 
 // Consultar un producto
 async function getProductById(id) {
-  const response = await fetch(`${URL}/products/${id}`);
-  const data = await response.json();
+  const res = await fetch(`${URL}/products/${id}`);
+  const data = await res.json();
   console.log(data);
 }
 
 // Crear un producto
 async function createProduct(title, price, category) {
-  const response = await fetch(`${URL}/products`, {
+  const res = await fetch(`${URL}/products`, {
     method: 'POST',
     body: JSON.stringify({ title, price: parseFloat(price), category }),
     headers: { 'Content-Type': 'application/json' }
   });
-  const data = await response.json();
+  const data = await res.json();
   console.log(data);
 }
 
 // eliminar un producto
 async function deleteProduct(id) {
-  const response = await fetch(`${URL}/products/${id}`, {
+  const res = await fetch(`${URL}/products/${id}`, {
     method: 'DELETE'
   });
-  const data = await response.json();
+  const data = await res.json();
   console.log(data);
 }
 
